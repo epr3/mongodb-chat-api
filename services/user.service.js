@@ -21,7 +21,16 @@ const getUsers = async () => {
   }
 };
 
+const getUser = async data => {
+  try {
+    return await User.findById(data.id).exec();
+  } catch (e) {
+    throw new Error(e.message);
+  }
+};
+
 module.exports = {
   createUser,
-  getUsers
+  getUsers,
+  getUser
 };
