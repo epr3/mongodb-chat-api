@@ -2,9 +2,7 @@ const jwt = require('jsonwebtoken');
 const userService = require('../services/user.service');
 
 const generateToken = user => {
-  return jwt.sign(user, process.env.JWT_SECRET, {
-    expiresIn: 604800
-  });
+  return jwt.sign(user, process.env.JWT_SECRET);
 };
 
 const registerUser = async (req, res) => {

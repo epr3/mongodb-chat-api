@@ -56,9 +56,11 @@ app.use(function(err, req, res, next) {
 
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
+const chatRoutes = require('./routes/chat.routes');
 
 app.use(authRoutes);
 app.use(userRoutes);
+app.use(chatRoutes);
 
 const server = app.listen(process.env.PORT || 3000, () => {
   console.log('Listening on port ' + server.address().port);
