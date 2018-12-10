@@ -1,8 +1,8 @@
 const Conversation = require('../models/conversation');
 
-const getConversations = async () => {
+const getConversations = async data => {
   try {
-    return await Conversation.find()
+    return await Conversation.find({ participants: { $elemMatch: {$eq: data.userId}}})
       .populate('participants')
       .exec();
   } catch (e) {

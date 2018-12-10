@@ -3,7 +3,7 @@ const conversationService = require('../services/conversation.service');
 
 const getConversations = async (req, res) => {
   try {
-    const conversations = await conversationService.getConversations();
+    const conversations = await conversationService.getConversations({ userId: req.user._id });
     res.status(200).send(conversations);
   } catch (e) {
     res.status(500).send({ message: e.message });
