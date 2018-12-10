@@ -22,13 +22,13 @@ const getConversation = async (req, res) => {
 const newConversation = async (req, res) => {
   try {
     const conversation = await conversationService.createConversation({
-      userId: req.user.id,
+      userId: req.user._id,
       recipientId: req.body.recipientId
     });
     const message = await messageService.createMessage({
       conversationId: conversation._id,
       body: req.body.body,
-      author: req.user.id
+      author: req.user._id
     });
     res.status(200).send(message);
   } catch (e) {

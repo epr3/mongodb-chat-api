@@ -2,7 +2,9 @@ const Conversation = require('../models/conversation');
 
 const getConversations = async () => {
   try {
-    return await Conversation.find().exec();
+    return await Conversation.find()
+      .populate('participants')
+      .exec();
   } catch (e) {
     throw new Error(e.message);
   }
