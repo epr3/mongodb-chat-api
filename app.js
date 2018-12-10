@@ -16,8 +16,6 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const app = express();
 
-app.set('etag', false);
-
 const passport = require('./config/passport');
 
 app.use(passport.initialize());
