@@ -1,5 +1,5 @@
-const messageService = require('../services/message.service');
-const conversationService = require('../services/conversation.service');
+const messageService = require('../repositories/message.repository');
+const conversationService = require('../repositories/conversation.repository');
 
 const getConversations = async (req, res) => {
   try {

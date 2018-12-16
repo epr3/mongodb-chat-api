@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const userService = require('../services/user.service');
+const userService = require('../repositories/user.repository');
 
 const generateToken = user => {
   return jwt.sign(user, process.env.JWT_SECRET);
